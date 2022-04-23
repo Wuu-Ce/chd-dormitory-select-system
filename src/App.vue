@@ -1,9 +1,7 @@
 <template>
-  <div id="app" class="body">
-    <el-config-provider :locale="locale">
-      <router-view style="height: 100%" />
-    </el-config-provider>
-  </div>
+  <el-config-provider :locale="locale">
+    <router-view />
+  </el-config-provider>
 </template>
 
 <script lang="ts">
@@ -24,15 +22,12 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.body {
-  position: absolute;
+<style lang="scss">
+body {
+  margin: 0;
+}
+#app {
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  overflow-y: auto;
-  background-color: #fbf9fe;
-  overflow-x: hidden;
+  min-height: 100vh;
 }
 </style>

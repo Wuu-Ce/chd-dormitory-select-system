@@ -19,22 +19,26 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'import/extensions': 'off',
-    'import/no-extraneous-dependencies': [2, { devDependencies: true }],
+    'no-plusplus': 'off',
     'import/no-unresolved': 'off',
-    'no-param-reassign': [
-      'error',
-      {
-        props: true,
-        ignorePropertyModificationsFor: [
-          'e', // for e.return value
-          'ctx', // for Koa routing
-          'req', // for Express requests
-          'request', // for Express requests
-          'res', // for Express responses
-          'response', // for Express responses
-          'state' // for vuex state
-        ]
+    'import/no-extraneous-dependencies': 'off'
+  },
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx', '.vue']
+    },
+    'import/resolver': {
+      typescript: {
+        // always try to resolve types under `<root>@types`
+        // directory even it doesn't contain any source code, like `@types/unist`
+        alwaysTryTypes: true,
+
+        // Choose from one of the "project" configs
+        // below or omit to use <root>/tsconfig.json by default
+
+        // use <root>/path/to/folder/tsconfig.json
+        project: '/'
       }
-    ]
+    }
   }
 }

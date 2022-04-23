@@ -1,20 +1,9 @@
 <template>
-  <el-container>
-    <el-header>
-      <v-header />
-    </el-header>
-    <el-container>
-      <el-aside width="200px">
-        <v-nav />
-      </el-aside>
-      <el-container>
-        <el-main>
-          <router-view />
-        </el-main>
-        <el-footer>
-          <v-footer />
-        </el-footer>
-      </el-container>
+  <el-container class="container">
+    <el-header class="header"><v-header /></el-header>
+    <el-container class="main-container">
+      <el-aside><v-nav /></el-aside>
+      <el-main class="main-container"><router-view /></el-main>
     </el-container>
   </el-container>
 </template>
@@ -24,7 +13,6 @@ import { defineComponent } from 'vue'
 import { ElContainer, ElHeader, ElAside, ElMain } from 'element-plus'
 import nav from '@/components/nav/nav.vue'
 import header from '@/components/header/header.vue'
-import footer from '@/components/footer/footer.vue'
 
 export default defineComponent({
   name: 'home',
@@ -34,45 +22,25 @@ export default defineComponent({
     ElAside,
     ElMain,
     'v-nav': nav,
-    'v-header': header,
-    'v-footer': footer
+    'v-header': header
   }
 })
 </script>
 
-<style scoped>
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-}
-
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
-}
-
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
-  line-height: 160px;
-}
-
-body > .el-container {
-  margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
+<style lang="scss" scoped>
+.container {
+  height: 100vh;
+  .header {
+    height: auto;
+  }
+  .el-aside {
+    width: auto;
+  }
+  .main-container {
+    height: 100%;
+    flex-grow: 100;
+    flex-shrink: 10;
+    padding: 0;
+  }
 }
 </style>
