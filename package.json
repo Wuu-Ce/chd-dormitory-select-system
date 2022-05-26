@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.{vue,js,ts}": "eslint --fix"
+    "./src/*.{vue,js,ts}": "eslint --fix"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.4",
